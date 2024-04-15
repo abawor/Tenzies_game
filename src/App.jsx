@@ -16,7 +16,6 @@ export default function App() {
         
         if (allHeld && allSameValue) {
             setTenzies(true)
-            console.log("You won")
         }
     }, [dice])
 
@@ -45,13 +44,18 @@ export default function App() {
     }
 
     function rollDice() {
-        setDice(oldDice => oldDice.map(die => {
-            return die.isHeld ? 
-                die :
-                generateNewDie()
-        }))
+        if(!tenzies) {
+            setDice(oldDice => oldDice.map(die => {
+                return die.isHeld ? 
+                    die :
+                    generateNewDie()
+            }))
+        } else {
+            setTenzies(false)
+            setDice(allNewDice())
+        }
     }
-    
+   
     let diceElements = dice.map(die =>
         <Die
             key={die.id}
@@ -64,7 +68,7 @@ export default function App() {
     
     return (
         <main>
-            {tenzies ? <Confetti /> : ""}
+            {tenzies && <Confetti />}
             <h1 className="title">Tenzies</h1>
             <p className="instructions">
                 Roll until all dice are the same. Click each die to freeze
@@ -73,7 +77,7 @@ export default function App() {
             <div className="dice-container">
                 {diceElements}
             </div>
-            <button className="roll-dice" onClick={rollDice}>Roll</button>
+            <button className="roll-dice" onClick={rollDice}>{tenzies ? "New Game" : "Roll"}</button>
         </main>
     )
 }
