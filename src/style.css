@@ -15,6 +15,8 @@ main {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  margin: auto;
+  text-align: center;
 }
 
 .instructions {
@@ -23,9 +25,8 @@ main {
 }
 
 .score {
-  padding: 0 0 10px 0;
+  padding: 10px 0 20px 0;
   margin: 0;
-  text-align: center;
 }
 
 .dice-container {
