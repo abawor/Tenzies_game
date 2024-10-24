@@ -21,6 +21,17 @@ main {
   align-items: center;
 }
 
+.instructions {
+  padding: 0;
+  margin: 0;
+}
+
+.score {
+  padding: 0 0 10px 0;
+  margin: 0;
+  text-align: center;
+}
+
 .dice-container {
   display: grid;
   grid-template: auto auto / repeat(5, 1fr);

@@ -6,8 +6,9 @@ import {nanoid} from "nanoid"
 export default function App() {
 
     const [dice, setDice] = React.useState(allNewDice())
-    
+    const [currentScore, setCurrentScore] = React.useState(0)
     const [tenzies, setTenzies] = React.useState(false)
+    let savedScoreRecord = localStorage.getItem("savedScoreRecord")
 
     React.useEffect(() => {
         const allHeld = dice.every(die => die.isHeld)
@@ -16,6 +17,9 @@ export default function App() {
         
         if (allHeld && allSameValue) {
             setTenzies(true)
+            if ((savedScoreRecord > currentScore) || !savedScoreRecord) {
+                localStorage.setItem("savedScoreRecord", currentScore)
+            }
         }
     }, [dice])
 
@@ -50,9 +54,12 @@ export default function App() {
                     die :
                     generateNewDie()
             }))
+            setCurrentScore(currentScore + 1)
         } else {
             setTenzies(false)
             setDice(allNewDice())
+            setCurrentScore(0)
+            savedScoreRecord = localStorage.getItem("savedScoreRecord")
         }
     }
    
@@ -73,6 +80,11 @@ export default function App() {
             <p className="instructions">
                 Roll until all dice are the same. Click each die to freeze
                  it at its current value between rolls.
+            </p>
+            <p className="score">
+                Record: {savedScoreRecord}
+                <br/>
+                Current number of rolls: {currentScore}
             </p>
             <div className="dice-container">
                 {diceElements}
