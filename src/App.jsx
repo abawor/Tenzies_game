@@ -62,6 +62,12 @@ export default function App() {
             savedScoreRecord = localStorage.getItem("savedScoreRecord")
         }
     }
+
+    function restartGame() {
+        setTenzies(false)
+        setDice(allNewDice())
+        setCurrentScore(0)
+    }
    
     let diceElements = dice.map(die =>
         <Die
@@ -90,6 +96,7 @@ export default function App() {
                 {diceElements}
             </div>
             <button className="roll-dice" onClick={rollDice}>{tenzies ? "New Game" : "Roll"}</button>
+            <button className="restart-game" onClick={restartGame}>Restart</button>
         </main>
     )
 }
