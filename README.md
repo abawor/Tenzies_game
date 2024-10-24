@@ -1,8 +1,5 @@
-# React + Vite
+Tenzies game - roll 10 dices (1-6 numbers) until all of them show the same number.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Used Javascript with React and Web API
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+See if you can break my record of 3 rolls :)

@@ -6,7 +6,7 @@ import {nanoid} from "nanoid"
 export default function App() {
 
     const [dice, setDice] = React.useState(allNewDice())
-    const [currentScore, setCurrentScore] = React.useState(0)
+    const [currentScore, setCurrentScore] = React.useState(1)
     const [tenzies, setTenzies] = React.useState(false)
     let savedScoreRecord = localStorage.getItem("savedScoreRecord")
 
@@ -58,7 +58,7 @@ export default function App() {
         } else {
             setTenzies(false)
             setDice(allNewDice())
-            setCurrentScore(0)
+            setCurrentScore(1)
             savedScoreRecord = localStorage.getItem("savedScoreRecord")
         }
     }
@@ -66,7 +66,7 @@ export default function App() {
     function restartGame() {
         setTenzies(false)
         setDice(allNewDice())
-        setCurrentScore(0)
+        setCurrentScore(1)
     }
    
     let diceElements = dice.map(die =>
