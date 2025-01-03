@@ -6,4 +6,9 @@ describe('App', () => {
         render(<App />)
     })
 
+    it('should render Tenzies heading', () => {
+        const heading = screen.getByText("Tenzies")
+        expect(heading).toBeInTheDocument()
+    })
+    
 })
