@@ -10,5 +10,10 @@ describe('App', () => {
         const heading = screen.getByText("Tenzies")
         expect(heading).toBeInTheDocument()
     })
+
+    it('should render Roll button', () => {
+        const button = screen.getByRole("button", { name: /Roll/i })
+        expect(button).toBeInTheDocument()
+    })
     
 })
