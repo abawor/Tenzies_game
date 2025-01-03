@@ -6,6 +6,4 @@ describe('App', () => {
         render(<App />)
     })
 
-    
-    
 })
