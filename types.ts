@@ -1,7 +1,7 @@
 export type Dice = {
+    id: string;
     value: number;
     isHeld: boolean;
-    id: string;
 }
 
 export type DieProps = {

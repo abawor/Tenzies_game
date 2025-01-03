@@ -1,5 +1,4 @@
-import React from "react"
-import { DieProps } from "../types"
+import { DieProps } from "../../types"
 
 export default function Die(props: DieProps) {
     const styles = {

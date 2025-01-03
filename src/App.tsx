@@ -1,6 +1,6 @@
 import React from "react"
 import Confetti from "react-confetti"
-import Die from "../Components/Die"
+import Die from "./Components/Die"
 import {nanoid} from "nanoid"
 import { Dice } from "../types"
 
@@ -44,7 +44,7 @@ export default function App() {
         return newDice
     }
     
-    function holdDice(id) {
+    function holdDice(id: Dice["id"]) {
         setDice(oldDice => oldDice.map(die => {
             return die.id === id ? 
                 {...die, isHeld: !die.isHeld} :
