@@ -1,6 +1,7 @@
 import React from "react"
+import { DieProps } from "../types"
 
-export default function Die(props) {
+export default function Die(props: DieProps) {
     const styles = {
         backgroundColor: (props.isHeld ? "#59E391" : "white")
     }

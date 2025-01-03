@@ -2,13 +2,18 @@ import React from "react"
 import Confetti from "react-confetti"
 import Die from "../Components/Die"
 import {nanoid} from "nanoid"
+import { Dice } from "../types"
 
 export default function App() {
+    const [dice, setDice] = React.useState<Dice[]>(allNewDice())
+    const [currentScore, setCurrentScore] = React.useState<number>(1)
+    const [tenzies, setTenzies] = React.useState<boolean>(false)
+    let localRecord = localStorage.getItem("savedScoreRecord")
+    let savedScoreRecord: number = 0
 
-    const [dice, setDice] = React.useState(allNewDice())
-    const [currentScore, setCurrentScore] = React.useState(1)
-    const [tenzies, setTenzies] = React.useState(false)
-    let savedScoreRecord = localStorage.getItem("savedScoreRecord")
+    if (localRecord) {
+        savedScoreRecord = Number(localRecord)
+    }
 
     React.useEffect(() => {
         const allHeld = dice.every(die => die.isHeld)
@@ -18,7 +23,7 @@ export default function App() {
         if (allHeld && allSameValue) {
             setTenzies(true)
             if ((savedScoreRecord > currentScore) || !savedScoreRecord) {
-                localStorage.setItem("savedScoreRecord", currentScore)
+                localStorage.setItem("savedScoreRecord", currentScore.toString())
             }
         }
     }, [dice])
@@ -32,7 +37,7 @@ export default function App() {
     }
     
     function allNewDice() {
-        const newDice = []
+        const newDice: Dice[] = []
         for (let i = 0; i < 10; i++) {
             newDice.push(generateNewDie())
         }
@@ -59,7 +64,7 @@ export default function App() {
             setTenzies(false)
             setDice(allNewDice())
             setCurrentScore(1)
-            savedScoreRecord = localStorage.getItem("savedScoreRecord")
+            savedScoreRecord = Number(localStorage.getItem("savedScoreRecord"))
         }
     }
 
@@ -88,7 +93,7 @@ export default function App() {
                  it at its current value between rolls.
             </p>
             <p className="score">
-                Record: {savedScoreRecord}
+                Record: {savedScoreRecord === 0 ? "" : savedScoreRecord}
                 <br/>
                 Current number of rolls: {currentScore}
             </p>
