@@ -7,6 +7,7 @@ export default function Die(props: DieProps) {
 
     return (
         <div
+            data-testid="die"
             className="die-face"
             style={styles}
             onClick={props.holdDice}

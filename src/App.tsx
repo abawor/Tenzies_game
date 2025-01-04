@@ -23,6 +23,7 @@ export default function App() {
         if (allHeld && allSameValue) {
             setTenzies(true)
             if ((savedScoreRecord > currentScore) || !savedScoreRecord) {
+                savedScoreRecord = currentScore
                 localStorage.setItem("savedScoreRecord", currentScore.toString())
             }
         }
@@ -100,7 +101,7 @@ export default function App() {
                     Current number of rolls: {currentScore}
                 </p>
             </div>
-            <div className="dice-container">
+            <div data-testid="dice-container" className="dice-container">
                 {diceElements}
             </div>
             <button className="roll-dice" onClick={rollDice}>{tenzies ? "New Game" : "Roll"}</button>
