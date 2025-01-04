@@ -92,11 +92,14 @@ export default function App() {
                 Roll until all dice are the same. Click each die to freeze
                  it at its current value between rolls.
             </p>
-            <p className="score">
-                Record: {savedScoreRecord === 0 ? "" : savedScoreRecord}
-                <br/>
-                Current number of rolls: {currentScore}
-            </p>
+            <div className="score">
+                <p>
+                    Record: {savedScoreRecord === 0 ? "" : savedScoreRecord}
+                </p>
+                <p>
+                    Current number of rolls: {currentScore}
+                </p>
+            </div>
             <div className="dice-container">
                 {diceElements}
             </div>
