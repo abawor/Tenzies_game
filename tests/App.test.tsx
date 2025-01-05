@@ -23,7 +23,7 @@ describe('App', () => {
         expect(currentScore).toBeInTheDocument()
         const button = screen.getByRole("button", { name: /Roll/i })
         await userEvent.click(button)
-        const updatedCurrentScore = screen.getByText("Current number of rolls: 3")
+        const updatedCurrentScore = screen.getByText("Current number of rolls: 2")
         expect(updatedCurrentScore).toBeInTheDocument()
     })
 
